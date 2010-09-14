@@ -4,6 +4,10 @@ CURDIR=`pwd`
 PROGDIR=`dirname $PROG`
 SRCDIR=
 
+MINI_SERVICE_PORT=8084
+MINI_WEB_PORT=8085
+MINI_SHOWCASE_PORT=8086
+
 cd $PROGDIR
 PROGDIR=`pwd`
 SRCDIR="$PROGDIR/../.."
@@ -93,16 +97,20 @@ function start_service(){
 		exit 1
 	fi
 	ant -f ${BUILD_XML_FILE} init-db
-	nohup mvn ${OFF_LINE} -f ${POM_XML_FILE} -Djetty.port=${JETTY_PORT} jetty:run &
+	nohup mvn ${OFF_LINE} -f ${POM_XML_FILE} -Djetty.port=${JETTY_PORT} jetty:run &> ${SRCDIR}/${FOLDER}/mvn.log &
+	sleep 2
 }
 
-start_service "[Step 4] Mini-Service" "mini-service" 8084
-exit 1
+#Start h2 database
+nohup mvn ${OFF_LINE} -f ${SRCDIR}/tools/h2/pom.xml exec:java &> ${SRCDIR}/h2.mvn.log &
 
-start_service "[Step 5] Mini-Web" "mini-web" 8085
-start_service "[Step 6] Showcase" "showcase" 8086
+sleep 1
 
-info_msg "http://localhost:8084/mini-service"
-info_msg "http://localhost:8085/mini-web"
-info_msg "http://localhost:8086/showcase"
+start_service "[Step 4] Mini-Service" "mini-service" ${MINI_SERVICE_PORT}
+start_service "[Step 5] Mini-Web" "mini-web" ${MINI_WEB_PORT}
+start_service "[Step 6] Showcase" "showcase" ${MINI_SHOWCASE_PORT}
+
+info_msg "http://localhost:${MINI_SERVICE_PORT}/mini-service"
+info_msg "http://localhost:${MINI_WEB_PORT}/mini-web"
+info_msg "http://localhost:${MINI_SHOWCASE_PORT}/showcase"
 

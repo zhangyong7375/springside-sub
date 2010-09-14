@@ -35,7 +35,13 @@
 					</execution>
 				</executions>
 				<configuration>
+					<!--
 					<mainClass>org.h2.tools.Console</mainClass>
+					-->
+					<mainClass>org.h2.tools.Server</mainClass>
+					<arguments>
+						<argument>-tcp</argument>
+					</arguments>
 				</configuration>
 			</plugin>
 		</plugins>
