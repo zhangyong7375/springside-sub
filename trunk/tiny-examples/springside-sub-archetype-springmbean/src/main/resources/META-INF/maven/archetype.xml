@@ -1,0 +1,8 @@
+<archetype>
+  <id>springside-sub-archetype-springmbean</id>
+  <sources>
+    <source>src/main/java/Main.java</source>
+  </sources>
+  <testSources>
+  </testSources>
+</archetype>
