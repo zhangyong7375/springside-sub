@@ -1,4 +1,4 @@
-package $com.springside-sub.examples.archetype;
+package ${package};
 
 /**
  * Hello world!
