@@ -10,6 +10,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 
@@ -24,12 +25,23 @@ public class Main {
      */
     public static void main(String[] args) {
         usingApplicationContext();
+        usingFileSystemXmlApplicationContext();
         usingClassPathResource();
         usingFileSystemResource();
     }
 
     private static void usingApplicationContext() throws BeansException {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(new String[]{"com/springioc/app.xml"});
+        MyBean[] beans = {(MyBean) ctx.getBean("myBean1"), (MyBean) ctx.getBean("myBean2"), (MyBean) ctx.getBean("myBean3")};
+        for (MyBean b : beans) {
+            b.sayHello();
+        }
+    }
+
+    private static void usingFileSystemXmlApplicationContext() {
+        ApplicationContext ctx = new FileSystemXmlApplicationContext(new String[] {
+           "src/com/springioc/app.xml"
+        });
         MyBean[] beans = {(MyBean) ctx.getBean("myBean1"), (MyBean) ctx.getBean("myBean2"), (MyBean) ctx.getBean("myBean3")};
         for (MyBean b : beans) {
             b.sayHello();
