@@ -9,8 +9,12 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.expression.EvaluationContext;
@@ -116,7 +120,16 @@ public class Main {
         System.out.println(" b = " + b);
 
         BeanFactory factory = new XmlBeanFactory(new ClassPathResource("com/spel/spel-app.xml"));
-        Integer v = factory.getBean("v", Integer.class);
+        Integer v = null;
+        try{
+            v = factory.getBean("v", Integer.class);
+        }catch(BeansException ex){
+            Logger.getAnonymousLogger().log(Level.SEVERE, "1", ex);
+        }
+        System.out.println("v = " + v);
+
+        ApplicationContext appCtx = new ClassPathXmlApplicationContext("com/spel/spel-app.xml");
+        v = appCtx.getBean("v", Integer.class);
         System.out.println("v = " + v);
     }
     
