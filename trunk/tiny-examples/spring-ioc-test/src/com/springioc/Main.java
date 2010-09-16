@@ -86,6 +86,8 @@ public class Main {
         ctx = new ClassPathXmlApplicationContext("com/springioc/app-anno.xml");
         MyBean bean = ctx.getBean("fooBean", MyBean.class);
         bean.sayHello();
+
+        ctx.getBean("myBean", MyBeanWithApplicationContextAware.class).sayHello();
     }
 
 }
