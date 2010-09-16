@@ -5,10 +5,14 @@
 
 package com.springioc;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
@@ -28,6 +32,7 @@ public class Main {
         usingFileSystemXmlApplicationContext();
         usingClassPathResource();
         usingFileSystemResource();
+        usingAnnotationApplicationContext();
     }
 
     private static void usingApplicationContext() throws BeansException {
@@ -67,6 +72,20 @@ public class Main {
         for(MyBean b : beans){
             b.sayHello();
         }
+    }
+
+    private static void usingAnnotationApplicationContext() {
+        ApplicationContext ctx = null;
+
+        try{
+            ctx = new AnnotationConfigApplicationContext(MyAppConfig.class);
+        }catch(BeanCreationException ex){
+            Logger.getAnonymousLogger().log(Level.SEVERE, null, ex);
+        }
+
+        ctx = new ClassPathXmlApplicationContext("com/springioc/app-anno.xml");
+        MyBean bean = ctx.getBean("fooBean", MyBean.class);
+        bean.sayHello();
     }
 
 }
