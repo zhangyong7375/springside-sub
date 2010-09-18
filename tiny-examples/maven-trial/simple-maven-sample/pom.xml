@@ -7,5 +7,12 @@
   <groupId>com.simple.mymaven</groupId>
   <artifactId>simple-mymaven</artifactId>
   <version>1.0</version>
-  
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 </project>
