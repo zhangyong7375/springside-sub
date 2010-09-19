@@ -4,6 +4,7 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <name>simple-mymaven</name>
   <groupId>com.simple.mymaven</groupId>
   <artifactId>simple-mymaven</artifactId>
   <version>1.0</version>
