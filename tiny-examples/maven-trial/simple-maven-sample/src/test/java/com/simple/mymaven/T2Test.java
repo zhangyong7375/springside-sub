@@ -32,8 +32,7 @@ public class T2Test extends TestCase {
         System.out.println("main");
         String[] args = null;
         T2.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
 }
