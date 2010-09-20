@@ -5,7 +5,7 @@
   <groupId>hibernate-core-practice</groupId>
   <artifactId>hibernate-core-practice</artifactId>
   <version>1.0</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <name>hibernate-core-practice</name>
 
@@ -71,6 +71,20 @@
       <artifactId>ejb3-persistence</artifactId>
       <version>1.0.1.GA</version>
     </dependency>
+ 
+    		<!-- jetty -->
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jetty</artifactId>
+            <version>6.1.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>jsp-2.1-jetty</artifactId>
+            <version>6.1.25</version>
+        </dependency>
+		<!-- testing end -->
+
   </dependencies>
 
   <build>
@@ -86,6 +100,24 @@
                     <source>1.6</source>
                     <target>1.6</target>
                     <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1-beta-1</version>
+                <configuration>
+                    <warName>${project.artifactId}</warName>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>maven-jetty-plugin</artifactId>
+                <version>6.1.25</version>
+                <configuration>
+                    <scanIntervalSeconds>5</scanIntervalSeconds>
                 </configuration>
             </plugin>
       </plugins>
