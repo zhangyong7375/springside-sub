@@ -39,6 +39,7 @@ public class EventManagerServlet extends HttpServlet{
 
             //Write HTML header
             PrintWriter out = resp.getWriter();
+            out.println("<html><head><title>Event Manager</title></head><body>");
 
             //Handle actions
             if( "store".equals(req.getParameter("action"))){
@@ -76,14 +77,14 @@ public class EventManagerServlet extends HttpServlet{
 
     private Long createAndStoreEvent(String string, Date date) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
+        //session.beginTransaction();
 
         Event event = new Event();
         event.setTitle(string);
         event.setDate(date);
         session.save(event);
 
-        session.getTransaction().commit();
+        //session.getTransaction().commit();
         return event.getId();
     }
 
