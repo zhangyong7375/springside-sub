@@ -1,4 +1,4 @@
-package hibernate-core-practice;
+package com.hibernatecorepractice;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
