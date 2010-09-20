@@ -146,6 +146,11 @@
       <!-- eliminate the version number from the output file name -->
       <finalName>${artifactId}</finalName>
       <sourceDirectory>src</sourceDirectory>
+      <resources>
+          <resource>
+              <directory>resources</directory>
+          </resource>
+      </resources>
 
       <plugins>
             <plugin>
