@@ -85,4 +85,14 @@ public class EventManager {
         session.getTransaction().commit();
     }
 
+    private void addEmailToPerson(Long personId, String emailAddress){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Person person = (Person)session.load(Person.class, personId);
+        person.getEmailAddresses().add(emailAddress);
+
+        session.getTransaction().commit();
+    }
+
 }
