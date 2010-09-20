@@ -1,4 +1,4 @@
-package hibernate-core-practice;
+package com.hibernatecorepractice;
 
 /**
  * Hello world!
