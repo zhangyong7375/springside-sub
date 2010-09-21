@@ -17,7 +17,22 @@
     </bean>
 
     <bean id="bean2" class="com.springtutorial.MyBean2">
-        <property name="id"><idref bean="bean" /></property>
+
+        <property name="id">
+            <!--
+              This will fail: The idref element is simply an error-proof way 
+              to pass the id (string value - not a reference) of another bean 
+              in the container to a <constructor-arg/> or <property/> element.
+              
+              The first form is preferable to the second, because using the 
+              idref tag allows the container to validate at deployment time 
+              that the referenced, named bean actually exists. In the second 
+              variation, no validation is performed on the value that is passed 
+              to the targetName property of the client bean.
+            <idref bean="bean333" />
+            -->
+            <idref bean="bean" />
+        </property>
         <property name="bean" ref="bean"/>
     </bean>
 
