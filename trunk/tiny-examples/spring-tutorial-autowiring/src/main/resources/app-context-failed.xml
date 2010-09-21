@@ -14,9 +14,7 @@
   http://www.developer.com/java/other/article.php/3756831/Java-Tip-Simplify-Spring-Apps-with-Autowired.htm
   -->
   <context:annotation-config />
-  <bean id="myBean2" class="com.st.MyBean2">
-      <property name="s" ref="s" />
-  </bean>
+  <bean id="myBean2" class="com.st.MyBean2" />
   <bean id="myBean" class="com.st.MyBean" p:s="Hello"/>
   <bean id="s" class="java.lang.String"><constructor-arg value="Hello world" /></bean>
 </beans>
