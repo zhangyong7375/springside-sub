@@ -30,5 +30,15 @@ public class App
         System.out.println(col.getList());
         System.out.println(col.getSet());
         System.out.println(col.getMap());
+
+        try{
+            MyParent p = ctx.getBean("parent", MyParent.class);
+            System.out.println("Should not be here");
+        }catch(Exception ex){
+            System.out.println("Should have exception : " + ex.getMessage());
+        }
+
+        MyChild c = ctx.getBean("child", MyChild.class);
+        System.out.println(c.toString());
     }
 }
