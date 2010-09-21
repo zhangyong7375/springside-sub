@@ -22,5 +22,8 @@ public class App
 
         MyBean2 bean2 = ctx.getBean("bean2", MyBean2.class);
         System.out.println(bean == bean2.getBean());
+
+        MyBean2 b2 = ctx.getBean("myBean2", MyBean2.class);
+        System.out.println("s1 = " + b2.getBean().getS1() + " s2 = " + b2.getBean().getS2());
     }
 }
