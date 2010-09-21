@@ -15,5 +15,9 @@ public class App
         MyBean2 b2 = ac.getBean("myBean2", MyBean2.class);
 
         System.out.println(b2.getMyBean().getS());
+
+        ac = new ClassPathXmlApplicationContext("app2-context.xml");
+        b2 = ac.getBean("myBean2", MyBean2.class);
+        System.out.println(b2.getMyBean().getS());
     }
 }
