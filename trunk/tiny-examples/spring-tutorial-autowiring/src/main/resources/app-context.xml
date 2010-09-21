@@ -17,6 +17,9 @@
   <bean id="myBean2" class="com.st.MyBean2">
       <property name="s" ref="s" />
   </bean>
-  <bean id="myBean" class="com.st.MyBean" p:s="Hello"/>
+  <bean id="myBean" class="com.st.MyBean" p:s="Hello" primary="true"/>
   <bean id="s" class="java.lang.String"><constructor-arg value="Hello world" /></bean>
+  <!--
+  <bean id="myBean" class="com.st.MyBean2" />
+  -->
 </beans>
