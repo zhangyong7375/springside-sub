@@ -16,4 +16,9 @@
         </property>
     </bean>
 
+    <bean id="bean2" class="com.springtutorial.MyBean2">
+        <property name="id"><idref bean="bean" /></property>
+        <property name="bean" ref="bean"/>
+    </bean>
+
 </beans>

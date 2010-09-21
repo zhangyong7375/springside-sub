@@ -16,5 +16,8 @@ public class App
 
         System.out.println("s1 = [" + bean.getS1() + "]");
         System.out.println("s2 = [" + bean.getS2() + "]");
+
+        MyBean2 bean2 = ctx.getBean("bean2", MyBean2.class);
+        System.out.println(bean == bean2.getBean());
     }
 }
