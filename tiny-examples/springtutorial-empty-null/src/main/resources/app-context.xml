@@ -43,7 +43,31 @@
             <idref bean="bean2" />
         </property>
         <property name="bean" ref="bean"/>
-        <property name="beanX"><ref parent="bean"/></property>
+        <property name="beanX">
+            <ref parent="bean"/>
+        </property>
+    </bean>
+
+    <bean id="col" class="com.springtutorial.MyCollection">
+        <property name="list">
+            <list>
+                <value>a list element followed by a reference</value>
+                <ref bean="bean" />
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>just some string</value>
+                <ref bean="bean" />
+                <ref local="bean2" />
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="an entry" value="just some string"/>
+                <entry key ="a ref" value-ref="bean"/>
+            </map>
+        </property>
     </bean>
 
 </beans>
