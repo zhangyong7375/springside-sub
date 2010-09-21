@@ -70,4 +70,20 @@
         </property>
     </bean>
 
+    <bean id="parent" class="com.springtutorial.MyParent" abstract="true" p:x="Hello" p:y="1" >
+        <property name="list">
+            <list>
+                <value>hello</value>
+                <value>world</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="child" class="com.springtutorial.MyChild" parent="parent" p:z="World" >
+        <property name="list" >
+            <list merge="true">
+                <value>jeff</value>
+            </list>
+        </property>
+    </bean>
 </beans>
