@@ -25,5 +25,10 @@ public class App
 
         MyBean2 b2 = ctx.getBean("myBean2", MyBean2.class);
         System.out.println("s1 = " + b2.getBean().getS1() + " s2 = " + b2.getBean().getS2());
+
+        MyCollection col = ctx.getBean("col", MyCollection.class);
+        System.out.println(col.getList());
+        System.out.println(col.getSet());
+        System.out.println(col.getMap());
     }
 }
