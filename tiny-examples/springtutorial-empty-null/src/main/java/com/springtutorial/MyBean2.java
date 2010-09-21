@@ -13,6 +13,7 @@ public class MyBean2 {
     private String id;
     private String beanId;
     private MyBean bean;
+    private MyBean beanX;
 
     public MyBean getBean() {
         return bean;
@@ -36,6 +37,14 @@ public class MyBean2 {
 
     public void setBeanId(String beanId) {
         this.beanId = beanId;
+    }
+
+    public MyBean getBeanX() {
+        return beanX;
+    }
+
+    public void setBeanX(MyBean beanX) {
+        this.beanX = beanX;
     }
 
     

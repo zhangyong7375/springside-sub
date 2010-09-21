@@ -43,6 +43,7 @@
             <idref bean="bean2" />
         </property>
         <property name="bean" ref="bean"/>
+        <property name="beanX"><ref parent="bean"/></property>
     </bean>
 
 </beans>
