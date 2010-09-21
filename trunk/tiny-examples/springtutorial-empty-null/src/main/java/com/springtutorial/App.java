@@ -11,7 +11,10 @@ public class App
 {
     public static void main( String[] args )
     {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("app-context.xml");
+        ApplicationContext ctxParent = new ClassPathXmlApplicationContext("app2-context.xml");
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(ctxParent);
+        ctx.setConfigLocation("app-context.xml");
+        ctx.refresh();
         MyBean bean = ctx.getBean("bean", MyBean.class);
 
         System.out.println("s1 = [" + bean.getS1() + "]");
