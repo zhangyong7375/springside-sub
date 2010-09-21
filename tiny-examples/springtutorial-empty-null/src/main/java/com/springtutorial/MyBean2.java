@@ -12,7 +12,7 @@ package com.springtutorial;
 public class MyBean2 {
     private String id;
     private String beanId;
-    private MyBean bean;
+    private MyBean bean = new MyBean();
     private MyBean beanX;
 
     public MyBean getBean() {

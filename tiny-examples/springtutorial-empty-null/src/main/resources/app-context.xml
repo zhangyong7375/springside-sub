@@ -86,4 +86,8 @@
             </list>
         </property>
     </bean>
+
+    <bean id="compoundBean2" class="com.springtutorial.MyBean2">
+        <property name="bean.s1" value="Hello"/>
+    </bean>
 </beans>
