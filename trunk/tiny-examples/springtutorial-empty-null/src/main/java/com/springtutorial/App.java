@@ -39,7 +39,9 @@ public class App
         }
 
         MyChild c = ctx.getBean("child", MyChild.class);
+        MyChild c2 = ctx.getBean("child2", MyChild.class);
         System.out.println(c.toString());
+        System.out.println(c2.toString());
 
         System.out.println(ctx.getBean("compoundBean2", MyBean2.class).getBean().getS1());
     }

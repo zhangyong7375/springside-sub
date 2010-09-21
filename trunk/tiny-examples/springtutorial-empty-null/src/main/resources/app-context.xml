@@ -87,6 +87,14 @@
         </property>
     </bean>
 
+    <bean id="child2" class="com.springtutorial.MyChild" parent="child" p:z="World2">
+        <property name="list">
+            <list merge="true">
+                <value>huang</value>
+            </list>
+        </property>
+    </bean>
+
     <bean id="compoundBean2" class="com.springtutorial.MyBean2">
         <property name="bean.s1" value="Hello"/>
     </bean>
