@@ -20,18 +20,27 @@
 
         <property name="id">
             <!--
-              This will fail: The idref element is simply an error-proof way 
-              to pass the id (string value - not a reference) of another bean 
+                Additionally, if the referenced bean is in the same XML unit,
+                and the bean name is the bean id, you can use the local attribute,
+                which allows the XML parser itself to validate the bean id earlier,
+                at XML document parse time.
+            -->
+            <idref local="bean" />
+        </property>
+        <property name="beanId">
+            <!--
+              This will fail: The idref element is simply an error-proof way
+              to pass the id (string value - not a reference) of another bean
               in the container to a <constructor-arg/> or <property/> element.
-              
-              The first form is preferable to the second, because using the 
-              idref tag allows the container to validate at deployment time 
-              that the referenced, named bean actually exists. In the second 
-              variation, no validation is performed on the value that is passed 
+
+              The first form is preferable to the second, because using the
+              idref tag allows the container to validate at deployment time
+              that the referenced, named bean actually exists. In the second
+              variation, no validation is performed on the value that is passed
               to the targetName property of the client bean.
             <idref bean="bean333" />
             -->
-            <idref bean="bean" />
+            <idref bean="bean2" />
         </property>
         <property name="bean" ref="bean"/>
     </bean>

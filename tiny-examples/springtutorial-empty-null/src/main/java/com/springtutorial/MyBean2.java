@@ -11,6 +11,7 @@ package com.springtutorial;
  */
 public class MyBean2 {
     private String id;
+    private String beanId;
     private MyBean bean;
 
     public MyBean getBean() {
@@ -27,6 +28,14 @@ public class MyBean2 {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getBeanId() {
+        return beanId;
+    }
+
+    public void setBeanId(String beanId) {
+        this.beanId = beanId;
     }
 
     
