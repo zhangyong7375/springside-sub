@@ -43,6 +43,9 @@ public class App
         }catch(InterruptedException e){
             System.exit(1);
         }
+
+        //ctx.refresh();
+        ctx.close();
         ctx.stop();
     }
 }

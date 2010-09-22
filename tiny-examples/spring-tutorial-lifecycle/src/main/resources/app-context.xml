@@ -34,4 +34,6 @@
   <!-- timeout value in milliseconds -->
         <property name="timeoutPerShutdownPhase" value="10000"/>
     </bean>
+
+    <bean id="lifeCycleBean2" class="com.st.LifeCycleProcessorBean" />
 </beans>
