@@ -28,4 +28,10 @@
         </property>
     </bean>
 
+    <bean id="lifeCycleBean" class="com.st.LifeCycleBean" />
+
+    <bean id="lifecycleProcessor" class="org.springframework.context.support.DefaultLifecycleProcessor">
+  <!-- timeout value in milliseconds -->
+        <property name="timeoutPerShutdownPhase" value="10000"/>
+    </bean>
 </beans>
