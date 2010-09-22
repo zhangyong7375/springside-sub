@@ -11,6 +11,7 @@
         http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-1.5.xsd">
 
    <bean id="bean" class="st.cep.MyBean" />
+   <bean id="beanFromFactory" class="st.cep.MyBeanFactoryBean" />
 
    <bean class="st.cep.InstantiationTracingBeanPostProcessor" />
    <bean class="st.cep.InstantiationTracingBeanPostProcessor2" />
