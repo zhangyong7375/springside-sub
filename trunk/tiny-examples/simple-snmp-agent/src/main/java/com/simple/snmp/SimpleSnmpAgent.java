@@ -44,9 +44,7 @@ public class SimpleSnmpAgent extends BaseAgent{
 
         // These files does not exist and are not used but has to be specified
         // Read snmp4j docs for more info
-        super(new File("conf.agent"), new File("bootCounter.agent"),
-                new CommandProcessor(
-                new OctetString(MPv3.createLocalEngineID())));
+        super(new File("simplest.boot"), null, new CommandProcessor(new OctetString("simplest")));
         this.address = address;
     }
 
