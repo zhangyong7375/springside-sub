@@ -107,6 +107,15 @@ public class MyAgent extends BaseAgent {
     @Override
     protected void addNotificationTargets(SnmpTargetMIB targetMib, SnmpNotificationMIB notificationMib) {
         targetMib.addDefaultTDomains();
+
+        targetMib.addTargetAddress(
+                new OctetString("notificationV2c"),
+                TransportDomains.transportDomainUdpIpv4,
+                new OctetString(new UdpAddress("127.0.0.1/162").getValue()),
+                200, 1,
+                new OctetString("notify"),
+                new OctetString("v2c"),
+                StorageType.permanent);
         targetMib.addTargetAddress(
                 new OctetString("notificationV2c"),
                 TransportDomains.transportDomainUdpIpv4,
@@ -127,9 +136,10 @@ public class MyAgent extends BaseAgent {
         targetMib.addTargetParams(new OctetString("v2c"),
                 MessageProcessingModel.MPv2c,
                 SecurityModel.SECURITY_MODEL_SNMPv2c,
-                new OctetString("cpublic"),
+                new OctetString("secret"),
                 SecurityLevel.AUTH_PRIV,
                 StorageType.permanent);
+        
         targetMib.addTargetParams(new OctetString("v3notify"),
                 MessageProcessingModel.MPv3,
                 SecurityModel.SECURITY_MODEL_USM,
@@ -146,6 +156,16 @@ public class MyAgent extends BaseAgent {
 
     @Override
     protected void addViews(VacmMIB vacm) {
+        vacm.addGroup(SecurityModel.SECURITY_MODEL_SNMPv1,
+                new OctetString("secret"),
+                new OctetString("v1v2group"),
+                StorageType.nonVolatile);
+
+        vacm.addGroup(SecurityModel.SECURITY_MODEL_SNMPv2c,
+                new OctetString("secret"),
+                new OctetString("v1v2group"),
+                StorageType.nonVolatile);
+
         vacm.addGroup(SecurityModel.SECURITY_MODEL_SNMPv1,
                 new OctetString("cpublic"),
                 new OctetString("v1v2group"),
