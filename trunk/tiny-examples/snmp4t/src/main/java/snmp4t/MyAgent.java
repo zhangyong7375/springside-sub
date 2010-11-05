@@ -117,7 +117,7 @@ public class MyAgent extends BaseAgent {
                 new OctetString("v2c"),
                 StorageType.permanent);
         targetMib.addTargetAddress(
-                new OctetString("notificationV2c"),
+                new OctetString("notificationV2c2"),
                 TransportDomains.transportDomainUdpIpv4,
                 new OctetString(new UdpAddress("192.168.8.59/162").getValue()),
                 200, 1,
