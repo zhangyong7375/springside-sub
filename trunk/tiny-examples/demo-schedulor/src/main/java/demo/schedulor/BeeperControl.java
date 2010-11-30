@@ -44,8 +44,9 @@ public class BeeperControl {
             @Override
             public void run() {
                 beeperHandle.cancel(true);
+                scheduler.shutdown();
             }
 
-        }, 60 * 60, TimeUnit.SECONDS);
+        }, 60 , TimeUnit.SECONDS);
     }
 }
