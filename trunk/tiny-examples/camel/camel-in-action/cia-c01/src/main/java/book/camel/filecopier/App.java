@@ -1,4 +1,4 @@
-package book.camel;
+package book.camel.filecopier;
 
 /**
  * Hello world!
